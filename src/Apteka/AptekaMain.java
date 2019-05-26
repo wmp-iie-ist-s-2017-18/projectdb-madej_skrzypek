@@ -16,8 +16,6 @@ import javax.persistence.RollbackException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.InternalException;
-import org.eclipse.persistence.exceptions.DatabaseException;
 
 /**
  *
@@ -1579,4 +1577,6 @@ public class AptekaMain extends javax.swing.JFrame {
     int selectedReceptaID;
     int selectedMagazynID;
     int selectedDostawaID;
+    int selectedDostawaMagazynID;
+    int selectedReceptaMagazynID;
 }
