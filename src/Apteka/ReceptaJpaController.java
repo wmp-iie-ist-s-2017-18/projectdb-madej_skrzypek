@@ -5,6 +5,7 @@
  */
 package Apteka;
 
+import Apteka.exceptions.IllegalOrphanException;
 import Apteka.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -33,8 +34,8 @@ public class ReceptaJpaController implements Serializable {
     }
 
     public void create(Recepta recepta) {
-        if (recepta.getMagazynLekiCollection() == null) {
-            recepta.setMagazynLekiCollection(new ArrayList<MagazynLeki>());
+        if (recepta.getReceptaMagazynCollection() == null) {
+            recepta.setReceptaMagazynCollection(new ArrayList<ReceptaMagazyn>());
         }
         EntityManager em = null;
         try {
@@ -45,20 +46,25 @@ public class ReceptaJpaController implements Serializable {
                 klientID = em.getReference(klientID.getClass(), klientID.getIDKlienta());
                 recepta.setKlientID(klientID);
             }
-            Collection<MagazynLeki> attachedMagazynLekiCollection = new ArrayList<MagazynLeki>();
-            for (MagazynLeki magazynLekiCollectionMagazynLekiToAttach : recepta.getMagazynLekiCollection()) {
-                magazynLekiCollectionMagazynLekiToAttach = em.getReference(magazynLekiCollectionMagazynLekiToAttach.getClass(), magazynLekiCollectionMagazynLekiToAttach.getIDleku());
-                attachedMagazynLekiCollection.add(magazynLekiCollectionMagazynLekiToAttach);
+            Collection<ReceptaMagazyn> attachedReceptaMagazynCollection = new ArrayList<ReceptaMagazyn>();
+            for (ReceptaMagazyn receptaMagazynCollectionReceptaMagazynToAttach : recepta.getReceptaMagazynCollection()) {
+                receptaMagazynCollectionReceptaMagazynToAttach = em.getReference(receptaMagazynCollectionReceptaMagazynToAttach.getClass(), receptaMagazynCollectionReceptaMagazynToAttach.getIdreceptamagazyn());
+                attachedReceptaMagazynCollection.add(receptaMagazynCollectionReceptaMagazynToAttach);
             }
-            recepta.setMagazynLekiCollection(attachedMagazynLekiCollection);
+            recepta.setReceptaMagazynCollection(attachedReceptaMagazynCollection);
             em.persist(recepta);
             if (klientID != null) {
                 klientID.getReceptaCollection().add(recepta);
                 klientID = em.merge(klientID);
             }
-            for (MagazynLeki magazynLekiCollectionMagazynLeki : recepta.getMagazynLekiCollection()) {
-                magazynLekiCollectionMagazynLeki.getReceptaCollection().add(recepta);
-                magazynLekiCollectionMagazynLeki = em.merge(magazynLekiCollectionMagazynLeki);
+            for (ReceptaMagazyn receptaMagazynCollectionReceptaMagazyn : recepta.getReceptaMagazynCollection()) {
+                Recepta oldIDreceptyOfReceptaMagazynCollectionReceptaMagazyn = receptaMagazynCollectionReceptaMagazyn.getIDrecepty();
+                receptaMagazynCollectionReceptaMagazyn.setIDrecepty(recepta);
+                receptaMagazynCollectionReceptaMagazyn = em.merge(receptaMagazynCollectionReceptaMagazyn);
+                if (oldIDreceptyOfReceptaMagazynCollectionReceptaMagazyn != null) {
+                    oldIDreceptyOfReceptaMagazynCollectionReceptaMagazyn.getReceptaMagazynCollection().remove(receptaMagazynCollectionReceptaMagazyn);
+                    oldIDreceptyOfReceptaMagazynCollectionReceptaMagazyn = em.merge(oldIDreceptyOfReceptaMagazynCollectionReceptaMagazyn);
+                }
             }
             em.getTransaction().commit();
         } finally {
@@ -68,7 +74,7 @@ public class ReceptaJpaController implements Serializable {
         }
     }
 
-    public void edit(Recepta recepta) throws NonexistentEntityException, Exception {
+    public void edit(Recepta recepta) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -76,19 +82,31 @@ public class ReceptaJpaController implements Serializable {
             Recepta persistentRecepta = em.find(Recepta.class, recepta.getIDrecepty());
             Klient klientIDOld = persistentRecepta.getKlientID();
             Klient klientIDNew = recepta.getKlientID();
-            Collection<MagazynLeki> magazynLekiCollectionOld = persistentRecepta.getMagazynLekiCollection();
-            Collection<MagazynLeki> magazynLekiCollectionNew = recepta.getMagazynLekiCollection();
+            Collection<ReceptaMagazyn> receptaMagazynCollectionOld = persistentRecepta.getReceptaMagazynCollection();
+            Collection<ReceptaMagazyn> receptaMagazynCollectionNew = recepta.getReceptaMagazynCollection();
+            List<String> illegalOrphanMessages = null;
+            for (ReceptaMagazyn receptaMagazynCollectionOldReceptaMagazyn : receptaMagazynCollectionOld) {
+                if (!receptaMagazynCollectionNew.contains(receptaMagazynCollectionOldReceptaMagazyn)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain ReceptaMagazyn " + receptaMagazynCollectionOldReceptaMagazyn + " since its IDrecepty field is not nullable.");
+                }
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
             if (klientIDNew != null) {
                 klientIDNew = em.getReference(klientIDNew.getClass(), klientIDNew.getIDKlienta());
                 recepta.setKlientID(klientIDNew);
             }
-            Collection<MagazynLeki> attachedMagazynLekiCollectionNew = new ArrayList<MagazynLeki>();
-            for (MagazynLeki magazynLekiCollectionNewMagazynLekiToAttach : magazynLekiCollectionNew) {
-                magazynLekiCollectionNewMagazynLekiToAttach = em.getReference(magazynLekiCollectionNewMagazynLekiToAttach.getClass(), magazynLekiCollectionNewMagazynLekiToAttach.getIDleku());
-                attachedMagazynLekiCollectionNew.add(magazynLekiCollectionNewMagazynLekiToAttach);
+            Collection<ReceptaMagazyn> attachedReceptaMagazynCollectionNew = new ArrayList<ReceptaMagazyn>();
+            for (ReceptaMagazyn receptaMagazynCollectionNewReceptaMagazynToAttach : receptaMagazynCollectionNew) {
+                receptaMagazynCollectionNewReceptaMagazynToAttach = em.getReference(receptaMagazynCollectionNewReceptaMagazynToAttach.getClass(), receptaMagazynCollectionNewReceptaMagazynToAttach.getIdreceptamagazyn());
+                attachedReceptaMagazynCollectionNew.add(receptaMagazynCollectionNewReceptaMagazynToAttach);
             }
-            magazynLekiCollectionNew = attachedMagazynLekiCollectionNew;
-            recepta.setMagazynLekiCollection(magazynLekiCollectionNew);
+            receptaMagazynCollectionNew = attachedReceptaMagazynCollectionNew;
+            recepta.setReceptaMagazynCollection(receptaMagazynCollectionNew);
             recepta = em.merge(recepta);
             if (klientIDOld != null && !klientIDOld.equals(klientIDNew)) {
                 klientIDOld.getReceptaCollection().remove(recepta);
@@ -98,16 +116,15 @@ public class ReceptaJpaController implements Serializable {
                 klientIDNew.getReceptaCollection().add(recepta);
                 klientIDNew = em.merge(klientIDNew);
             }
-            for (MagazynLeki magazynLekiCollectionOldMagazynLeki : magazynLekiCollectionOld) {
-                if (!magazynLekiCollectionNew.contains(magazynLekiCollectionOldMagazynLeki)) {
-                    magazynLekiCollectionOldMagazynLeki.getReceptaCollection().remove(recepta);
-                    magazynLekiCollectionOldMagazynLeki = em.merge(magazynLekiCollectionOldMagazynLeki);
-                }
-            }
-            for (MagazynLeki magazynLekiCollectionNewMagazynLeki : magazynLekiCollectionNew) {
-                if (!magazynLekiCollectionOld.contains(magazynLekiCollectionNewMagazynLeki)) {
-                    magazynLekiCollectionNewMagazynLeki.getReceptaCollection().add(recepta);
-                    magazynLekiCollectionNewMagazynLeki = em.merge(magazynLekiCollectionNewMagazynLeki);
+            for (ReceptaMagazyn receptaMagazynCollectionNewReceptaMagazyn : receptaMagazynCollectionNew) {
+                if (!receptaMagazynCollectionOld.contains(receptaMagazynCollectionNewReceptaMagazyn)) {
+                    Recepta oldIDreceptyOfReceptaMagazynCollectionNewReceptaMagazyn = receptaMagazynCollectionNewReceptaMagazyn.getIDrecepty();
+                    receptaMagazynCollectionNewReceptaMagazyn.setIDrecepty(recepta);
+                    receptaMagazynCollectionNewReceptaMagazyn = em.merge(receptaMagazynCollectionNewReceptaMagazyn);
+                    if (oldIDreceptyOfReceptaMagazynCollectionNewReceptaMagazyn != null && !oldIDreceptyOfReceptaMagazynCollectionNewReceptaMagazyn.equals(recepta)) {
+                        oldIDreceptyOfReceptaMagazynCollectionNewReceptaMagazyn.getReceptaMagazynCollection().remove(receptaMagazynCollectionNewReceptaMagazyn);
+                        oldIDreceptyOfReceptaMagazynCollectionNewReceptaMagazyn = em.merge(oldIDreceptyOfReceptaMagazynCollectionNewReceptaMagazyn);
+                    }
                 }
             }
             em.getTransaction().commit();
@@ -127,7 +144,7 @@ public class ReceptaJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -139,15 +156,21 @@ public class ReceptaJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The recepta with id " + id + " no longer exists.", enfe);
             }
+            List<String> illegalOrphanMessages = null;
+            Collection<ReceptaMagazyn> receptaMagazynCollectionOrphanCheck = recepta.getReceptaMagazynCollection();
+            for (ReceptaMagazyn receptaMagazynCollectionOrphanCheckReceptaMagazyn : receptaMagazynCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Recepta (" + recepta + ") cannot be destroyed since the ReceptaMagazyn " + receptaMagazynCollectionOrphanCheckReceptaMagazyn + " in its receptaMagazynCollection field has a non-nullable IDrecepty field.");
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
             Klient klientID = recepta.getKlientID();
             if (klientID != null) {
                 klientID.getReceptaCollection().remove(recepta);
                 klientID = em.merge(klientID);
-            }
-            Collection<MagazynLeki> magazynLekiCollection = recepta.getMagazynLekiCollection();
-            for (MagazynLeki magazynLekiCollectionMagazynLeki : magazynLekiCollection) {
-                magazynLekiCollectionMagazynLeki.getReceptaCollection().remove(recepta);
-                magazynLekiCollectionMagazynLeki = em.merge(magazynLekiCollectionMagazynLeki);
             }
             em.remove(recepta);
             em.getTransaction().commit();
@@ -210,5 +233,4 @@ public class ReceptaJpaController implements Serializable {
         q1.setParameter("klient", klient);
         return q1.getResultList();
     }
-    
 }

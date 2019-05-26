@@ -5,26 +5,22 @@
  */
 package Apteka;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,7 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "magazyn_leki")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "MagazynLeki.findAll", query = "SELECT m FROM MagazynLeki m")
     , @NamedQuery(name = "MagazynLeki.findByIDleku", query = "SELECT m FROM MagazynLeki m WHERE m.iDleku = :iDleku")
@@ -41,13 +36,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "MagazynLeki.findByIlosc", query = "SELECT m FROM MagazynLeki m WHERE m.ilosc = :ilosc")
     , @NamedQuery(name = "MagazynLeki.findByDatawaznosci", query = "SELECT m FROM MagazynLeki m WHERE m.datawaznosci = :datawaznosci")})
 public class MagazynLeki implements Serializable {
-
-    @Basic(optional = false)
-    @Column(name = "Cena")
-    private long cena;
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -59,16 +47,19 @@ public class MagazynLeki implements Serializable {
     @Column(name = "Nazwa")
     private String nazwa;
     @Basic(optional = false)
+    @Column(name = "Cena")
+    private long cena;
+    @Basic(optional = false)
     @Column(name = "Ilosc")
     private int ilosc;
     @Basic(optional = false)
     @Column(name = "Data_waznosci")
     @Temporal(TemporalType.DATE)
     private Date datawaznosci;
-    @ManyToMany(mappedBy = "magazynLekiCollection")
-    private Collection<Recepta> receptaCollection;
-    @ManyToMany(mappedBy = "magazynLekiCollection")
-    private Collection<Dostawa> dostawaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iDleku")
+    private Collection<DostawaMagazyn> dostawaMagazynCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iDleku")
+    private Collection<ReceptaMagazyn> receptaMagazynCollection;
 
     public MagazynLeki() {
     }
@@ -77,7 +68,7 @@ public class MagazynLeki implements Serializable {
         this.iDleku = iDleku;
     }
 
-    public MagazynLeki(Integer iDleku, String nazwa, int cena, int ilosc, Date datawaznosci) {
+    public MagazynLeki(Integer iDleku, String nazwa, long cena, int ilosc, Date datawaznosci) {
         this.iDleku = iDleku;
         this.nazwa = nazwa;
         this.cena = cena;
@@ -90,9 +81,7 @@ public class MagazynLeki implements Serializable {
     }
 
     public void setIDleku(Integer iDleku) {
-        Integer oldIDleku = this.iDleku;
         this.iDleku = iDleku;
-        changeSupport.firePropertyChange("IDleku", oldIDleku, iDleku);
     }
 
     public String getNazwa() {
@@ -100,20 +89,23 @@ public class MagazynLeki implements Serializable {
     }
 
     public void setNazwa(String nazwa) {
-        String oldNazwa = this.nazwa;
         this.nazwa = nazwa;
-        changeSupport.firePropertyChange("nazwa", oldNazwa, nazwa);
     }
 
+    public long getCena() {
+        return cena;
+    }
+
+    public void setCena(long cena) {
+        this.cena = cena;
+    }
 
     public int getIlosc() {
         return ilosc;
     }
 
     public void setIlosc(int ilosc) {
-        int oldIlosc = this.ilosc;
         this.ilosc = ilosc;
-        changeSupport.firePropertyChange("ilosc", oldIlosc, ilosc);
     }
 
     public Date getDatawaznosci() {
@@ -121,27 +113,23 @@ public class MagazynLeki implements Serializable {
     }
 
     public void setDatawaznosci(Date datawaznosci) {
-        Date oldDatawaznosci = this.datawaznosci;
         this.datawaznosci = datawaznosci;
-        changeSupport.firePropertyChange("datawaznosci", oldDatawaznosci, datawaznosci);
     }
 
-    @XmlTransient
-    public Collection<Recepta> getReceptaCollection() {
-        return receptaCollection;
+    public Collection<DostawaMagazyn> getDostawaMagazynCollection() {
+        return dostawaMagazynCollection;
     }
 
-    public void setReceptaCollection(Collection<Recepta> receptaCollection) {
-        this.receptaCollection = receptaCollection;
+    public void setDostawaMagazynCollection(Collection<DostawaMagazyn> dostawaMagazynCollection) {
+        this.dostawaMagazynCollection = dostawaMagazynCollection;
     }
 
-    @XmlTransient
-    public Collection<Dostawa> getDostawaCollection() {
-        return dostawaCollection;
+    public Collection<ReceptaMagazyn> getReceptaMagazynCollection() {
+        return receptaMagazynCollection;
     }
 
-    public void setDostawaCollection(Collection<Dostawa> dostawaCollection) {
-        this.dostawaCollection = dostawaCollection;
+    public void setReceptaMagazynCollection(Collection<ReceptaMagazyn> receptaMagazynCollection) {
+        this.receptaMagazynCollection = receptaMagazynCollection;
     }
 
     @Override
@@ -166,23 +154,7 @@ public class MagazynLeki implements Serializable {
 
     @Override
     public String toString() {
-        return "Apteka.MagazynLeki[ iDleku=" + iDleku + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
-    }
-
-    public long getCena() {
-        return cena;
-    }
-
-    public void setCena(long cena) {
-        this.cena = cena;
+        return nazwa;
     }
     
 }

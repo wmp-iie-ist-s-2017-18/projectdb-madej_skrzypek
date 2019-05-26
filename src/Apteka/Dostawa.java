@@ -5,28 +5,22 @@
  */
 package Apteka;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "dostawa")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Dostawa.findAll", query = "SELECT d FROM Dostawa d")
     , @NamedQuery(name = "Dostawa.findByIDdostawy", query = "SELECT d FROM Dostawa d WHERE d.iDdostawy = :iDdostawy")
@@ -42,9 +35,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Dostawa.findByNazwahurtowni", query = "SELECT d FROM Dostawa d WHERE d.nazwahurtowni = :nazwahurtowni")
     , @NamedQuery(name = "Dostawa.findByIlosc", query = "SELECT d FROM Dostawa d WHERE d.ilosc = :ilosc")})
 public class Dostawa implements Serializable {
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -62,11 +52,8 @@ public class Dostawa implements Serializable {
     @Basic(optional = false)
     @Column(name = "Ilosc")
     private int ilosc;
-    @JoinTable(name = "dostawa-magazyn", joinColumns = {
-        @JoinColumn(name = "ID_dostawy", referencedColumnName = "ID_dostawy")}, inverseJoinColumns = {
-        @JoinColumn(name = "ID_leku", referencedColumnName = "ID_leku")})
-    @ManyToMany
-    private Collection<MagazynLeki> magazynLekiCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iDdostawy")
+    private Collection<DostawaMagazyn> dostawaMagazynCollection;
 
     public Dostawa() {
     }
@@ -87,9 +74,7 @@ public class Dostawa implements Serializable {
     }
 
     public void setIDdostawy(Integer iDdostawy) {
-        Integer oldIDdostawy = this.iDdostawy;
         this.iDdostawy = iDdostawy;
-        changeSupport.firePropertyChange("IDdostawy", oldIDdostawy, iDdostawy);
     }
 
     public Date getDatadostarczenia() {
@@ -97,9 +82,7 @@ public class Dostawa implements Serializable {
     }
 
     public void setDatadostarczenia(Date datadostarczenia) {
-        Date oldDatadostarczenia = this.datadostarczenia;
         this.datadostarczenia = datadostarczenia;
-        changeSupport.firePropertyChange("datadostarczenia", oldDatadostarczenia, datadostarczenia);
     }
 
     public String getNazwahurtowni() {
@@ -107,9 +90,7 @@ public class Dostawa implements Serializable {
     }
 
     public void setNazwahurtowni(String nazwahurtowni) {
-        String oldNazwahurtowni = this.nazwahurtowni;
         this.nazwahurtowni = nazwahurtowni;
-        changeSupport.firePropertyChange("nazwahurtowni", oldNazwahurtowni, nazwahurtowni);
     }
 
     public int getIlosc() {
@@ -117,18 +98,15 @@ public class Dostawa implements Serializable {
     }
 
     public void setIlosc(int ilosc) {
-        int oldIlosc = this.ilosc;
         this.ilosc = ilosc;
-        changeSupport.firePropertyChange("ilosc", oldIlosc, ilosc);
     }
 
-    @XmlTransient
-    public Collection<MagazynLeki> getMagazynLekiCollection() {
-        return magazynLekiCollection;
+    public Collection<DostawaMagazyn> getDostawaMagazynCollection() {
+        return dostawaMagazynCollection;
     }
 
-    public void setMagazynLekiCollection(Collection<MagazynLeki> magazynLekiCollection) {
-        this.magazynLekiCollection = magazynLekiCollection;
+    public void setDostawaMagazynCollection(Collection<DostawaMagazyn> dostawaMagazynCollection) {
+        this.dostawaMagazynCollection = dostawaMagazynCollection;
     }
 
     @Override
@@ -153,15 +131,7 @@ public class Dostawa implements Serializable {
 
     @Override
     public String toString() {
-        return "Apteka.Dostawa[ iDdostawy=" + iDdostawy + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
+        return nazwahurtowni;
     }
     
 }

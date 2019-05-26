@@ -5,8 +5,6 @@
  */
 package Apteka;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -20,9 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,7 +25,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "klient")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Klient.findAll", query = "SELECT k FROM Klient k")
     , @NamedQuery(name = "Klient.findByIDKlienta", query = "SELECT k FROM Klient k WHERE k.iDKlienta = :iDKlienta")
@@ -39,13 +33,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Klient.findByPesel", query = "SELECT k FROM Klient k WHERE k.pesel = :pesel")
     , @NamedQuery(name = "Klient.findByTelefon", query = "SELECT k FROM Klient k WHERE k.telefon = :telefon")})
 public class Klient implements Serializable {
-
-    @Basic(optional = false)
-    @Column(name = "Telefon")
-    private String telefon;
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -62,6 +49,9 @@ public class Klient implements Serializable {
     @Basic(optional = false)
     @Column(name = "PESEL")
     private String pesel;
+    @Basic(optional = false)
+    @Column(name = "Telefon")
+    private String telefon;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "klientID")
     private Collection<Recepta> receptaCollection;
 
@@ -85,9 +75,7 @@ public class Klient implements Serializable {
     }
 
     public void setIDKlienta(Integer iDKlienta) {
-        Integer oldIDKlienta = this.iDKlienta;
         this.iDKlienta = iDKlienta;
-        changeSupport.firePropertyChange("IDKlienta", oldIDKlienta, iDKlienta);
     }
 
     public String getImie() {
@@ -95,9 +83,7 @@ public class Klient implements Serializable {
     }
 
     public void setImie(String imie) {
-        String oldImie = this.imie;
         this.imie = imie;
-        changeSupport.firePropertyChange("imie", oldImie, imie);
     }
 
     public String getNazwisko() {
@@ -105,9 +91,7 @@ public class Klient implements Serializable {
     }
 
     public void setNazwisko(String nazwisko) {
-        String oldNazwisko = this.nazwisko;
         this.nazwisko = nazwisko;
-        changeSupport.firePropertyChange("nazwisko", oldNazwisko, nazwisko);
     }
 
     public String getPesel() {
@@ -115,13 +99,17 @@ public class Klient implements Serializable {
     }
 
     public void setPesel(String pesel) {
-        String oldPesel = this.pesel;
         this.pesel = pesel;
-        changeSupport.firePropertyChange("pesel", oldPesel, pesel);
     }
 
+    public String getTelefon() {
+        return telefon;
+    }
 
-    @XmlTransient
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
     public Collection<Recepta> getReceptaCollection() {
         return receptaCollection;
     }
@@ -153,26 +141,6 @@ public class Klient implements Serializable {
     @Override
     public String toString() {
         return imie + " " + nazwisko;
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
-    }
-
-    public String getTelefon() {
-        return telefon;
-    }
-
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
-    }
-
-    int setIDKlienta(Klient klient) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

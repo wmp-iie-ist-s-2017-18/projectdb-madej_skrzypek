@@ -5,6 +5,7 @@
  */
 package Apteka;
 
+import Apteka.exceptions.IllegalOrphanException;
 import Apteka.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -33,23 +34,28 @@ public class DostawaJpaController implements Serializable {
     }
 
     public void create(Dostawa dostawa) {
-        if (dostawa.getMagazynLekiCollection() == null) {
-            dostawa.setMagazynLekiCollection(new ArrayList<MagazynLeki>());
+        if (dostawa.getDostawaMagazynCollection() == null) {
+            dostawa.setDostawaMagazynCollection(new ArrayList<DostawaMagazyn>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Collection<MagazynLeki> attachedMagazynLekiCollection = new ArrayList<MagazynLeki>();
-            for (MagazynLeki magazynLekiCollectionMagazynLekiToAttach : dostawa.getMagazynLekiCollection()) {
-                magazynLekiCollectionMagazynLekiToAttach = em.getReference(magazynLekiCollectionMagazynLekiToAttach.getClass(), magazynLekiCollectionMagazynLekiToAttach.getIDleku());
-                attachedMagazynLekiCollection.add(magazynLekiCollectionMagazynLekiToAttach);
+            Collection<DostawaMagazyn> attachedDostawaMagazynCollection = new ArrayList<DostawaMagazyn>();
+            for (DostawaMagazyn dostawaMagazynCollectionDostawaMagazynToAttach : dostawa.getDostawaMagazynCollection()) {
+                dostawaMagazynCollectionDostawaMagazynToAttach = em.getReference(dostawaMagazynCollectionDostawaMagazynToAttach.getClass(), dostawaMagazynCollectionDostawaMagazynToAttach.getIDdostawamagazyn());
+                attachedDostawaMagazynCollection.add(dostawaMagazynCollectionDostawaMagazynToAttach);
             }
-            dostawa.setMagazynLekiCollection(attachedMagazynLekiCollection);
+            dostawa.setDostawaMagazynCollection(attachedDostawaMagazynCollection);
             em.persist(dostawa);
-            for (MagazynLeki magazynLekiCollectionMagazynLeki : dostawa.getMagazynLekiCollection()) {
-                magazynLekiCollectionMagazynLeki.getDostawaCollection().add(dostawa);
-                magazynLekiCollectionMagazynLeki = em.merge(magazynLekiCollectionMagazynLeki);
+            for (DostawaMagazyn dostawaMagazynCollectionDostawaMagazyn : dostawa.getDostawaMagazynCollection()) {
+                Dostawa oldIDdostawyOfDostawaMagazynCollectionDostawaMagazyn = dostawaMagazynCollectionDostawaMagazyn.getIDdostawy();
+                dostawaMagazynCollectionDostawaMagazyn.setIDdostawy(dostawa);
+                dostawaMagazynCollectionDostawaMagazyn = em.merge(dostawaMagazynCollectionDostawaMagazyn);
+                if (oldIDdostawyOfDostawaMagazynCollectionDostawaMagazyn != null) {
+                    oldIDdostawyOfDostawaMagazynCollectionDostawaMagazyn.getDostawaMagazynCollection().remove(dostawaMagazynCollectionDostawaMagazyn);
+                    oldIDdostawyOfDostawaMagazynCollectionDostawaMagazyn = em.merge(oldIDdostawyOfDostawaMagazynCollectionDostawaMagazyn);
+                }
             }
             em.getTransaction().commit();
         } finally {
@@ -59,32 +65,43 @@ public class DostawaJpaController implements Serializable {
         }
     }
 
-    public void edit(Dostawa dostawa) throws NonexistentEntityException, Exception {
+    public void edit(Dostawa dostawa) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             Dostawa persistentDostawa = em.find(Dostawa.class, dostawa.getIDdostawy());
-            Collection<MagazynLeki> magazynLekiCollectionOld = persistentDostawa.getMagazynLekiCollection();
-            Collection<MagazynLeki> magazynLekiCollectionNew = dostawa.getMagazynLekiCollection();
-            Collection<MagazynLeki> attachedMagazynLekiCollectionNew = new ArrayList<MagazynLeki>();
-            for (MagazynLeki magazynLekiCollectionNewMagazynLekiToAttach : magazynLekiCollectionNew) {
-                magazynLekiCollectionNewMagazynLekiToAttach = em.getReference(magazynLekiCollectionNewMagazynLekiToAttach.getClass(), magazynLekiCollectionNewMagazynLekiToAttach.getIDleku());
-                attachedMagazynLekiCollectionNew.add(magazynLekiCollectionNewMagazynLekiToAttach);
-            }
-            magazynLekiCollectionNew = attachedMagazynLekiCollectionNew;
-            dostawa.setMagazynLekiCollection(magazynLekiCollectionNew);
-            dostawa = em.merge(dostawa);
-            for (MagazynLeki magazynLekiCollectionOldMagazynLeki : magazynLekiCollectionOld) {
-                if (!magazynLekiCollectionNew.contains(magazynLekiCollectionOldMagazynLeki)) {
-                    magazynLekiCollectionOldMagazynLeki.getDostawaCollection().remove(dostawa);
-                    magazynLekiCollectionOldMagazynLeki = em.merge(magazynLekiCollectionOldMagazynLeki);
+            Collection<DostawaMagazyn> dostawaMagazynCollectionOld = persistentDostawa.getDostawaMagazynCollection();
+            Collection<DostawaMagazyn> dostawaMagazynCollectionNew = dostawa.getDostawaMagazynCollection();
+            List<String> illegalOrphanMessages = null;
+            for (DostawaMagazyn dostawaMagazynCollectionOldDostawaMagazyn : dostawaMagazynCollectionOld) {
+                if (!dostawaMagazynCollectionNew.contains(dostawaMagazynCollectionOldDostawaMagazyn)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain DostawaMagazyn " + dostawaMagazynCollectionOldDostawaMagazyn + " since its IDdostawy field is not nullable.");
                 }
             }
-            for (MagazynLeki magazynLekiCollectionNewMagazynLeki : magazynLekiCollectionNew) {
-                if (!magazynLekiCollectionOld.contains(magazynLekiCollectionNewMagazynLeki)) {
-                    magazynLekiCollectionNewMagazynLeki.getDostawaCollection().add(dostawa);
-                    magazynLekiCollectionNewMagazynLeki = em.merge(magazynLekiCollectionNewMagazynLeki);
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
+            Collection<DostawaMagazyn> attachedDostawaMagazynCollectionNew = new ArrayList<DostawaMagazyn>();
+            for (DostawaMagazyn dostawaMagazynCollectionNewDostawaMagazynToAttach : dostawaMagazynCollectionNew) {
+                dostawaMagazynCollectionNewDostawaMagazynToAttach = em.getReference(dostawaMagazynCollectionNewDostawaMagazynToAttach.getClass(), dostawaMagazynCollectionNewDostawaMagazynToAttach.getIDdostawamagazyn());
+                attachedDostawaMagazynCollectionNew.add(dostawaMagazynCollectionNewDostawaMagazynToAttach);
+            }
+            dostawaMagazynCollectionNew = attachedDostawaMagazynCollectionNew;
+            dostawa.setDostawaMagazynCollection(dostawaMagazynCollectionNew);
+            dostawa = em.merge(dostawa);
+            for (DostawaMagazyn dostawaMagazynCollectionNewDostawaMagazyn : dostawaMagazynCollectionNew) {
+                if (!dostawaMagazynCollectionOld.contains(dostawaMagazynCollectionNewDostawaMagazyn)) {
+                    Dostawa oldIDdostawyOfDostawaMagazynCollectionNewDostawaMagazyn = dostawaMagazynCollectionNewDostawaMagazyn.getIDdostawy();
+                    dostawaMagazynCollectionNewDostawaMagazyn.setIDdostawy(dostawa);
+                    dostawaMagazynCollectionNewDostawaMagazyn = em.merge(dostawaMagazynCollectionNewDostawaMagazyn);
+                    if (oldIDdostawyOfDostawaMagazynCollectionNewDostawaMagazyn != null && !oldIDdostawyOfDostawaMagazynCollectionNewDostawaMagazyn.equals(dostawa)) {
+                        oldIDdostawyOfDostawaMagazynCollectionNewDostawaMagazyn.getDostawaMagazynCollection().remove(dostawaMagazynCollectionNewDostawaMagazyn);
+                        oldIDdostawyOfDostawaMagazynCollectionNewDostawaMagazyn = em.merge(oldIDdostawyOfDostawaMagazynCollectionNewDostawaMagazyn);
+                    }
                 }
             }
             em.getTransaction().commit();
@@ -104,7 +121,7 @@ public class DostawaJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -116,10 +133,16 @@ public class DostawaJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The dostawa with id " + id + " no longer exists.", enfe);
             }
-            Collection<MagazynLeki> magazynLekiCollection = dostawa.getMagazynLekiCollection();
-            for (MagazynLeki magazynLekiCollectionMagazynLeki : magazynLekiCollection) {
-                magazynLekiCollectionMagazynLeki.getDostawaCollection().remove(dostawa);
-                magazynLekiCollectionMagazynLeki = em.merge(magazynLekiCollectionMagazynLeki);
+            List<String> illegalOrphanMessages = null;
+            Collection<DostawaMagazyn> dostawaMagazynCollectionOrphanCheck = dostawa.getDostawaMagazynCollection();
+            for (DostawaMagazyn dostawaMagazynCollectionOrphanCheckDostawaMagazyn : dostawaMagazynCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Dostawa (" + dostawa + ") cannot be destroyed since the DostawaMagazyn " + dostawaMagazynCollectionOrphanCheckDostawaMagazyn + " in its dostawaMagazynCollection field has a non-nullable IDdostawy field.");
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             em.remove(dostawa);
             em.getTransaction().commit();

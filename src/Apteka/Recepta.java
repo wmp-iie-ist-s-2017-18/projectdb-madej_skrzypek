@@ -5,27 +5,22 @@
  */
 package Apteka;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,14 +28,10 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "recepta")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Recepta.findAll", query = "SELECT r FROM Recepta r")
     , @NamedQuery(name = "Recepta.findByIDrecepty", query = "SELECT r FROM Recepta r WHERE r.iDrecepty = :iDrecepty")})
 public class Recepta implements Serializable {
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -52,14 +43,11 @@ public class Recepta implements Serializable {
     @Lob
     @Column(name = "Leki")
     private String leki;
-    @JoinTable(name = "recepta-magazyn", joinColumns = {
-        @JoinColumn(name = "ID_recepty", referencedColumnName = "ID_recepty")}, inverseJoinColumns = {
-        @JoinColumn(name = "ID_leku", referencedColumnName = "ID_leku")})
-    @ManyToMany
-    private Collection<MagazynLeki> magazynLekiCollection;
     @JoinColumn(name = "Klient_ID", referencedColumnName = "ID_Klienta")
     @ManyToOne(optional = false)
     private Klient klientID;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iDrecepty")
+    private Collection<ReceptaMagazyn> receptaMagazynCollection;
 
     public Recepta() {
     }
@@ -78,9 +66,7 @@ public class Recepta implements Serializable {
     }
 
     public void setIDrecepty(Integer iDrecepty) {
-        Integer oldIDrecepty = this.iDrecepty;
         this.iDrecepty = iDrecepty;
-        changeSupport.firePropertyChange("IDrecepty", oldIDrecepty, iDrecepty);
     }
 
     public String getLeki() {
@@ -88,18 +74,7 @@ public class Recepta implements Serializable {
     }
 
     public void setLeki(String leki) {
-        String oldLeki = this.leki;
         this.leki = leki;
-        changeSupport.firePropertyChange("leki", oldLeki, leki);
-    }
-
-    @XmlTransient
-    public Collection<MagazynLeki> getMagazynLekiCollection() {
-        return magazynLekiCollection;
-    }
-
-    public void setMagazynLekiCollection(Collection<MagazynLeki> magazynLekiCollection) {
-        this.magazynLekiCollection = magazynLekiCollection;
     }
 
     public Klient getKlientID() {
@@ -107,9 +82,15 @@ public class Recepta implements Serializable {
     }
 
     public void setKlientID(Klient klientID) {
-        Klient oldKlientID = this.klientID;
         this.klientID = klientID;
-        changeSupport.firePropertyChange("klientID", oldKlientID, klientID);
+    }
+
+    public Collection<ReceptaMagazyn> getReceptaMagazynCollection() {
+        return receptaMagazynCollection;
+    }
+
+    public void setReceptaMagazynCollection(Collection<ReceptaMagazyn> receptaMagazynCollection) {
+        this.receptaMagazynCollection = receptaMagazynCollection;
     }
 
     @Override
@@ -135,14 +116,6 @@ public class Recepta implements Serializable {
     @Override
     public String toString() {
         return leki;
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
     }
     
 }
