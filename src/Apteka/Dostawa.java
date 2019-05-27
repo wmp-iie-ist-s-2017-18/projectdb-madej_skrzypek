@@ -6,6 +6,7 @@
 package Apteka;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -81,6 +82,12 @@ public class Dostawa implements Serializable {
         return datadostarczenia;
     }
 
+    public String getDatadostarczeniaAsString() {
+        // August 12, 2010
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(datadostarczenia);
+    }
+
     public void setDatadostarczenia(Date datadostarczenia) {
         this.datadostarczenia = datadostarczenia;
     }
@@ -133,5 +140,5 @@ public class Dostawa implements Serializable {
     public String toString() {
         return nazwahurtowni;
     }
-    
+
 }
