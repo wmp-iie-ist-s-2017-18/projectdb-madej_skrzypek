@@ -158,12 +158,15 @@ public class AptekaMain extends javax.swing.JFrame {
         TabReceptaLeki = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
-        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setMaximumSize(new java.awt.Dimension(1280, 700));
+        setMinimumSize(new java.awt.Dimension(1280, 700));
+        setPreferredSize(new java.awt.Dimension(1280, 700));
         setResizable(false);
 
         jTabbedPane4.setToolTipText("");
         jTabbedPane4.setMaximumSize(null);
+        jTabbedPane4.setMinimumSize(null);
+        jTabbedPane4.setPreferredSize(null);
 
         jPanel13.setMaximumSize(new java.awt.Dimension(1275, 735));
         jPanel13.setMinimumSize(new java.awt.Dimension(1275, 735));
@@ -262,7 +265,7 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateKlient)
                     .addComponent(DeleteKlient)
                     .addComponent(ClearKlient))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         TabKlient.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -286,10 +289,10 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
@@ -298,14 +301,14 @@ public class AptekaMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(120, 120, 120))
         );
 
         jTabbedPane4.addTab("Klient", jPanel13);
 
-        jPanel15.setMaximumSize(new java.awt.Dimension(1275, 735));
-        jPanel15.setMinimumSize(new java.awt.Dimension(1275, 735));
-        jPanel15.setPreferredSize(new java.awt.Dimension(1275, 735));
+        jPanel15.setMaximumSize(null);
+        jPanel15.setMinimumSize(null);
+        jPanel15.setRequestFocusEnabled(false);
 
         TabRecepta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         TabRecepta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -318,7 +321,7 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Recepta", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         jPanel16.setToolTipText("");
         jPanel16.setName(""); // NOI18N
-        jPanel16.setPreferredSize(new java.awt.Dimension(421, 218));
+        jPanel16.setPreferredSize(new java.awt.Dimension(1265, 104));
 
         jLabel26.setText("Klient");
 
@@ -407,7 +410,7 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateRecepta)
                     .addComponent(DeleteRecepta)
                     .addComponent(ClearRecepta))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
@@ -417,7 +420,7 @@ public class AptekaMain extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
@@ -425,19 +428,18 @@ public class AptekaMain extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Recepta", jPanel15);
 
-        jPanel17.setMaximumSize(new java.awt.Dimension(1275, 735));
-        jPanel17.setMinimumSize(new java.awt.Dimension(1275, 735));
+        jPanel17.setMaximumSize(null);
+        jPanel17.setMinimumSize(null);
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Magazyn", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         jPanel18.setToolTipText("");
         jPanel18.setName(""); // NOI18N
-        jPanel18.setPreferredSize(new java.awt.Dimension(421, 218));
+        jPanel18.setPreferredSize(new java.awt.Dimension(1265, 104));
 
         jLabel28.setText("Nazwa");
 
@@ -534,7 +536,7 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateMagazyn)
                     .addComponent(DeleteMagazyn)
                     .addComponent(ClearMagazyn))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         TabMagazyn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -552,28 +554,26 @@ public class AptekaMain extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9)
-                    .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
+                    .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Magazyn", jPanel17);
 
-        jPanel19.setMaximumSize(new java.awt.Dimension(1275, 735));
-        jPanel19.setMinimumSize(new java.awt.Dimension(1275, 735));
-        jPanel19.setPreferredSize(new java.awt.Dimension(1275, 735));
+        jPanel19.setMaximumSize(null);
+        jPanel19.setMinimumSize(null);
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Dostawa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         jPanel20.setToolTipText("");
         jPanel20.setName(""); // NOI18N
-        jPanel20.setPreferredSize(new java.awt.Dimension(421, 218));
+        jPanel20.setPreferredSize(new java.awt.Dimension(1265, 104));
 
         jLabel32.setText("Nazwa hurtowni");
 
@@ -662,7 +662,7 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateDostawa)
                     .addComponent(DeleteDostawa)
                     .addComponent(ClearDostawa))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         TabDostawa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -680,7 +680,7 @@ public class AptekaMain extends javax.swing.JFrame {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane10)
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
@@ -688,15 +688,13 @@ public class AptekaMain extends javax.swing.JFrame {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Dostawa", jPanel19);
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(1275, 735));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1275, 735));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1275, 735));
+        jPanel1.setMaximumSize(null);
+        jPanel1.setMinimumSize(null);
 
         TabDostawaMagazyn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -780,7 +778,7 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateDostawaLek)
                     .addComponent(DeleteDostawaLek)
                     .addComponent(ClearDostawaLek))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -798,8 +796,7 @@ public class AptekaMain extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Dostawa leków", jPanel1);
@@ -884,7 +881,7 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateReceptaLeki)
                     .addComponent(DeleteReceptaLeki)
                     .addComponent(ClearReceptaLeki))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         TabReceptaLeki.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -900,8 +897,8 @@ public class AptekaMain extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -910,7 +907,7 @@ public class AptekaMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Leki w recepcie", jPanel3);
@@ -923,7 +920,9 @@ public class AptekaMain extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -937,33 +936,9 @@ public class AptekaMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_klientReceptaActionPerformed
 
-    private void nazwaMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nazwaMagazynActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nazwaMagazynActionPerformed
-
     private void nazwahurtowniDostawaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nazwahurtowniDostawaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nazwahurtowniDostawaActionPerformed
-
-    private void AddKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddKlientActionPerformed
-        // TODO add your handling code here:
-        try {
-        Klient klient = new Klient();
-        klient.setImie(imieKlient.getText());
-        klient.setNazwisko(nazwiskoKlient.getText());
-        klient.setPesel(peselKlient.getText());
-        klient.setTelefon(telefonKlient.getText());
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        KlientJpaController controller = new KlientJpaController(emf);
-        controller.create(klient);
-        clearKlientTextFields();
-        bindKlientTable();
-        bindBoxKlient();
-        } catch (RollbackException e) {
-            JOptionPane.showMessageDialog(null, "Istnieje klient o takim PESELu!");
-        } 
-    }//GEN-LAST:event_AddKlientActionPerformed
 
     private void AddReceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddReceptaActionPerformed
         // TODO add your handling code here:
@@ -978,21 +953,6 @@ public class AptekaMain extends javax.swing.JFrame {
         clearReceptaTextFields();
         bindReceptaTable();
     }//GEN-LAST:event_AddReceptaActionPerformed
-
-    private void AddMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMagazynActionPerformed
-        // TODO add your handling code here:
-        MagazynLeki magazynLeki = new MagazynLeki();
-        magazynLeki.setNazwa(nazwaMagazyn.getText());
-        magazynLeki.setCena(Integer.parseInt(cenaMagazyn.getText()));
-        magazynLeki.setIlosc(Integer.parseInt(iloscMagazyn.getText()));
-        magazynLeki.setDatawaznosci(dataMagazyn.getDate());
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
-        controller.create(magazynLeki);
-        clearMagazynTextFields();
-        bindMagazynTable();
-    }//GEN-LAST:event_AddMagazynActionPerformed
 
     private void AddDostawaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDostawaActionPerformed
         // TODO add your handling code here:
@@ -1025,11 +985,6 @@ public class AptekaMain extends javax.swing.JFrame {
         bindDostawaLekBox();
     }//GEN-LAST:event_AddDostawaLekActionPerformed
 
-    private void ClearKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearKlientActionPerformed
-        // TODO add your handling code here:
-        clearKlientTextFields();
-    }//GEN-LAST:event_ClearKlientActionPerformed
-
     private void ClearReceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearReceptaActionPerformed
         // TODO add your handling code here:
         clearReceptaTextFields();
@@ -1053,21 +1008,6 @@ public class AptekaMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Musisz wybrać receptę!");
         }
     }//GEN-LAST:event_DeleteReceptaActionPerformed
-
-    private void TabKlientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabKlientMouseClicked
-        // TODO add your handling code here:
-        int rowNum = TabKlient.getSelectedRow();
-        selectedKlientID = Integer.parseInt(TabKlient.getValueAt(rowNum, 0).toString());
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        KlientJpaController controller = new KlientJpaController(emf);
-        Klient klient = controller.findKlient(selectedKlientID);
-        
-        imieKlient.setText(klient.getImie());
-        nazwiskoKlient.setText(klient.getNazwisko());
-        peselKlient.setText(klient.getPesel());
-        telefonKlient.setText(klient.getTelefon());
-    }//GEN-LAST:event_TabKlientMouseClicked
 
     private void TabReceptaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabReceptaMouseClicked
         // TODO add your handling code here:
@@ -1106,103 +1046,6 @@ public class AptekaMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Musisz wybrać receptę!");
         }
     }//GEN-LAST:event_UpdateReceptaActionPerformed
-
-    private void UpdateKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateKlientActionPerformed
-        // TODO add your handling code here:
-        if(selectedKlientID != -1){
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-            KlientJpaController controller = new KlientJpaController(emf);    
-
-            Klient klient = controller.findKlient(selectedKlientID);
-            klient.setImie(imieKlient.getText());
-            klient.setNazwisko(nazwiskoKlient.getText());
-            klient.setPesel(peselKlient.getText());
-            klient.setTelefon(telefonKlient.getText());
-            try {
-                controller.edit(klient);
-            } catch (NonexistentEntityException ex) {
-                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            selectedKlientID = -1;
-            clearKlientTextFields();
-            bindKlientTable();
-            bindBoxKlient();
-        } else {
-            JOptionPane.showMessageDialog(null, "Musisz wybrać klienta!");
-        }
-    }//GEN-LAST:event_UpdateKlientActionPerformed
-
-    private void DeleteKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteKlientActionPerformed
-        // TODO add your handling code here:
-        if(selectedKlientID != -1){
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-            KlientJpaController controller = new KlientJpaController(emf);
-            ReceptaJpaController receptaController = new ReceptaJpaController(emf);
-            Klient klient = controller.findKlient(selectedKlientID);
-            List<Recepta> receptaList = receptaController.getReceptaByKlient(klient);
-            int numberOfRecepts = receptaList.size();
-            if(numberOfRecepts <= 0){
-                try {
-                    controller.destroy(selectedKlientID);
-                } catch (IllegalOrphanException ex) {
-                    Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (NonexistentEntityException ex) {
-                    Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                selectedKlientID = -1;
-                clearKlientTextFields();
-                bindKlientTable();
-                bindBoxKlient();
-            } else {
-                JOptionPane.showMessageDialog(null, "Nie możesz usunąć klienta, który ma recepte");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Musisz wybrać klienta!");
-        }
-    }//GEN-LAST:event_DeleteKlientActionPerformed
-
-    private void UpdateMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateMagazynActionPerformed
-        // TODO add your handling code here:
-        if(selectedMagazynID != -1){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);    
-        
-        MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
-        magazynLeki.setNazwa(nazwaMagazyn.getText());
-        magazynLeki.setCena(Integer.parseInt(cenaMagazyn.getText()));
-        magazynLeki.setIlosc(Integer.parseInt(iloscMagazyn.getText()));
-        magazynLeki.setDatawaznosci(dataMagazyn.getDate());
-        try {
-            controller.edit(magazynLeki);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        selectedMagazynID = -1;
-        clearMagazynTextFields();
-        bindMagazynTable();
-        } else {
-            JOptionPane.showMessageDialog(null, "Musisz wybrać lek!");
-        }
-    }//GEN-LAST:event_UpdateMagazynActionPerformed
-
-    private void TabMagazynMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabMagazynMouseClicked
-        // TODO add your handling code here:
-        int rowNum = TabMagazyn.getSelectedRow();
-        selectedMagazynID = Integer.parseInt(TabMagazyn.getValueAt(rowNum, 0).toString());
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
-        MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
-        
-        nazwaMagazyn.setText(magazynLeki.getNazwa());
-        cenaMagazyn.setText(String.valueOf(magazynLeki.getCena()));
-        iloscMagazyn.setText(String.valueOf(magazynLeki.getIlosc()));
-        dataMagazyn.setDate(magazynLeki.getDatawaznosci());
-    }//GEN-LAST:event_TabMagazynMouseClicked
 
     private void TabDostawaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabDostawaMouseClicked
         // TODO add your handling code here:
@@ -1266,31 +1109,6 @@ public class AptekaMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeleteDostawaActionPerformed
 
-    private void DeleteMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMagazynActionPerformed
-        // TODO add your handling code here:
-        if (selectedMagazynID != -1){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
-        MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
-        try {
-            controller.destroy(selectedMagazynID);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalOrphanException ex) {
-            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        clearMagazynTextFields();
-        bindMagazynTable();
-        } else {
-            JOptionPane.showMessageDialog(null, "Musisz wybrać lek!");
-        }
-    }//GEN-LAST:event_DeleteMagazynActionPerformed
-
-    private void ClearMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearMagazynActionPerformed
-        // TODO add your handling code here:
-        clearMagazynTextFields();
-    }//GEN-LAST:event_ClearMagazynActionPerformed
-
     private void ClearDostawaLekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearDostawaLekActionPerformed
         // TODO add your handling code here:
         
@@ -1317,9 +1135,21 @@ public class AptekaMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         int rowNum = TabDostawaMagazyn.getSelectedRow();
         selectedDostawaMagazynID = Integer.parseInt(TabDostawaMagazyn.getValueAt(rowNum, 0).toString());
+//        int idhurtowni = Integer.parseInt(TabDostawaMagazyn.getValueAt(rowNum, 1).toString());
+//        int idleku = Integer.parseInt(TabDostawaMagazyn.getValueAt(rowNum, 2).toString());
+        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+//        DostawaJpaController dostawaController = new DostawaJpaController(emf);
+//        Dostawa dostawa = dostawaController.findDostawa(idhurtowni);
+//        
+//        MagazynLekiJpaController magazynController = new MagazynLekiJpaController(emf);
+//        MagazynLeki magazynLeki = magazynController.findMagazynLeki(idleku);
+        
         DostawaMagazynJpaController controller = new DostawaMagazynJpaController(emf);
         DostawaMagazyn dostawaMagazyn = controller.findDostawaMagazyn(selectedDostawaMagazynID);
+        
+//        HurtowniaDostawaLek.setSelectedItem(dostawa);
+//        LekDostawaLek.setSelectedItem(magazynLeki);
     }//GEN-LAST:event_TabDostawaMagazynMouseClicked
 
     private void UpdateDostawaLekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDostawaLekActionPerformed
@@ -1410,6 +1240,187 @@ public class AptekaMain extends javax.swing.JFrame {
     private void ReceptaLekiKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReceptaLekiKlientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ReceptaLekiKlientActionPerformed
+
+    private void TabKlientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabKlientMouseClicked
+        // TODO add your handling code here:
+        int rowNum = TabKlient.getSelectedRow();
+        selectedKlientID = Integer.parseInt(TabKlient.getValueAt(rowNum, 0).toString());
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        KlientJpaController controller = new KlientJpaController(emf);
+        Klient klient = controller.findKlient(selectedKlientID);
+
+        imieKlient.setText(klient.getImie());
+        nazwiskoKlient.setText(klient.getNazwisko());
+        peselKlient.setText(klient.getPesel());
+        telefonKlient.setText(klient.getTelefon());
+    }//GEN-LAST:event_TabKlientMouseClicked
+
+    private void ClearKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearKlientActionPerformed
+        // TODO add your handling code here:
+        clearKlientTextFields();
+    }//GEN-LAST:event_ClearKlientActionPerformed
+
+    private void DeleteKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteKlientActionPerformed
+        // TODO add your handling code here:
+        if(selectedKlientID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            KlientJpaController controller = new KlientJpaController(emf);
+            ReceptaJpaController receptaController = new ReceptaJpaController(emf);
+            Klient klient = controller.findKlient(selectedKlientID);
+            List<Recepta> receptaList = receptaController.getReceptaByKlient(klient);
+            int numberOfRecepts = receptaList.size();
+            if(numberOfRecepts <= 0){
+                try {
+                    controller.destroy(selectedKlientID);
+                } catch (IllegalOrphanException ex) {
+                    Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NonexistentEntityException ex) {
+                    Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                selectedKlientID = -1;
+                clearKlientTextFields();
+                bindKlientTable();
+                bindBoxKlient();
+            } else {
+                JOptionPane.showMessageDialog(null, "Nie możesz usunąć klienta, który ma recepte");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać klienta!");
+        }
+    }//GEN-LAST:event_DeleteKlientActionPerformed
+
+    private void UpdateKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateKlientActionPerformed
+        // TODO add your handling code here:
+        if(selectedKlientID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            KlientJpaController controller = new KlientJpaController(emf);
+
+            Klient klient = controller.findKlient(selectedKlientID);
+            klient.setImie(imieKlient.getText());
+            klient.setNazwisko(nazwiskoKlient.getText());
+            klient.setPesel(peselKlient.getText());
+            klient.setTelefon(telefonKlient.getText());
+            try {
+                controller.edit(klient);
+            } catch (NonexistentEntityException ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            selectedKlientID = -1;
+            clearKlientTextFields();
+            bindKlientTable();
+            bindBoxKlient();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać klienta!");
+        }
+    }//GEN-LAST:event_UpdateKlientActionPerformed
+
+    private void AddKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddKlientActionPerformed
+        // TODO add your handling code here:
+        try {
+            Klient klient = new Klient();
+            klient.setImie(imieKlient.getText());
+            klient.setNazwisko(nazwiskoKlient.getText());
+            klient.setPesel(peselKlient.getText());
+            klient.setTelefon(telefonKlient.getText());
+
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            KlientJpaController controller = new KlientJpaController(emf);
+            controller.create(klient);
+            clearKlientTextFields();
+            bindKlientTable();
+            bindBoxKlient();
+        } catch (RollbackException e) {
+            JOptionPane.showMessageDialog(null, "Istnieje klient o takim PESELu!");
+        }
+    }//GEN-LAST:event_AddKlientActionPerformed
+
+    private void TabMagazynMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabMagazynMouseClicked
+        // TODO add your handling code here:
+        int rowNum = TabMagazyn.getSelectedRow();
+        selectedMagazynID = Integer.parseInt(TabMagazyn.getValueAt(rowNum, 0).toString());
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
+        MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
+
+        nazwaMagazyn.setText(magazynLeki.getNazwa());
+        cenaMagazyn.setText(String.valueOf(magazynLeki.getCena()));
+        iloscMagazyn.setText(String.valueOf(magazynLeki.getIlosc()));
+        dataMagazyn.setDate(magazynLeki.getDatawaznosci());
+    }//GEN-LAST:event_TabMagazynMouseClicked
+
+    private void nazwaMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nazwaMagazynActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nazwaMagazynActionPerformed
+
+    private void ClearMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearMagazynActionPerformed
+        // TODO add your handling code here:
+        clearMagazynTextFields();
+    }//GEN-LAST:event_ClearMagazynActionPerformed
+
+    private void DeleteMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMagazynActionPerformed
+        // TODO add your handling code here:
+        if (selectedMagazynID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
+            MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
+            try {
+                controller.destroy(selectedMagazynID);
+            } catch (NonexistentEntityException ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalOrphanException ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            clearMagazynTextFields();
+            bindMagazynTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać lek!");
+        }
+    }//GEN-LAST:event_DeleteMagazynActionPerformed
+
+    private void UpdateMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateMagazynActionPerformed
+        // TODO add your handling code here:
+        if(selectedMagazynID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
+
+            MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
+            magazynLeki.setNazwa(nazwaMagazyn.getText());
+            magazynLeki.setCena(Integer.parseInt(cenaMagazyn.getText()));
+            magazynLeki.setIlosc(Integer.parseInt(iloscMagazyn.getText()));
+            magazynLeki.setDatawaznosci(dataMagazyn.getDate());
+            try {
+                controller.edit(magazynLeki);
+            } catch (NonexistentEntityException ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            selectedMagazynID = -1;
+            clearMagazynTextFields();
+            bindMagazynTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać lek!");
+        }
+    }//GEN-LAST:event_UpdateMagazynActionPerformed
+
+    private void AddMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMagazynActionPerformed
+        // TODO add your handling code here:
+        MagazynLeki magazynLeki = new MagazynLeki();
+        magazynLeki.setNazwa(nazwaMagazyn.getText());
+        magazynLeki.setCena(Integer.parseInt(cenaMagazyn.getText()));
+        magazynLeki.setIlosc(Integer.parseInt(iloscMagazyn.getText()));
+        magazynLeki.setDatawaznosci(dataMagazyn.getDate());
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
+        controller.create(magazynLeki);
+        clearMagazynTextFields();
+        bindMagazynTable();
+    }//GEN-LAST:event_AddMagazynActionPerformed
 
     /**
      * @param args the command line arguments
