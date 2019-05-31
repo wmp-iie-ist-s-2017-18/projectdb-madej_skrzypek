@@ -6,6 +6,7 @@
 package Apteka;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -110,6 +111,12 @@ public class MagazynLeki implements Serializable {
 
     public Date getDatawaznosci() {
         return datawaznosci;
+    }
+    
+    public String getDatawaznosciAsString() {
+        // August 12, 2010
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(datawaznosci);
     }
 
     public void setDatawaznosci(Date datawaznosci) {

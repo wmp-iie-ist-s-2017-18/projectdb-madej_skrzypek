@@ -49,7 +49,6 @@ public class AptekaMain extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         AptekaBazaPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("AptekaBazaPU").createEntityManager();
         klientQuery = java.beans.Beans.isDesignTime() ? null : AptekaBazaPUEntityManager.createQuery("SELECT k FROM Klient k");
@@ -159,6 +158,14 @@ public class AptekaMain extends javax.swing.JFrame {
         TabReceptaLeki = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
+
+        jTabbedPane4.setToolTipText("");
+        jTabbedPane4.setMaximumSize(null);
+        jTabbedPane4.setMinimumSize(null);
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Klient", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         jPanel14.setToolTipText("");
@@ -204,51 +211,47 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(274, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(16, 16, 16)
+                .addComponent(imieKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(nazwiskoKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel24)
+                        .addGap(18, 18, 18)
+                        .addComponent(peselKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(telefonKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(AddKlient)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(UpdateKlient)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DeleteKlient)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearKlient))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel25))
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(peselKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telefonKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nazwiskoKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(imieKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addComponent(ClearKlient)))
+                .addGap(271, 271, 271))
         );
-
-        jPanel14Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {imieKlient, nazwiskoKlient, peselKlient, telefonKlient});
-
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(imieKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imieKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nazwiskoKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23)
-                    .addComponent(nazwiskoKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(peselKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(peselKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25)
                     .addComponent(telefonKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -257,9 +260,10 @@ public class AptekaMain extends javax.swing.JFrame {
                     .addComponent(UpdateKlient)
                     .addComponent(DeleteKlient)
                     .addComponent(ClearKlient))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
+        TabKlient.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         TabKlient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -268,6 +272,7 @@ public class AptekaMain extends javax.swing.JFrame {
 
             }
         ));
+        TabKlient.setToolTipText("");
         TabKlient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TabKlientMouseClicked(evt);
@@ -280,20 +285,18 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Klient", jPanel13);
@@ -361,65 +364,62 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel27))
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lekiRecepta, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                            .addComponent(klientRecepta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(AddRecepta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UpdateRecepta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DeleteRecepta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearRecepta)))
-                .addGap(0, 29, Short.MAX_VALUE))
+                .addGap(457, 457, 457)
+                .addComponent(AddRecepta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpdateRecepta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DeleteRecepta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ClearRecepta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(358, Short.MAX_VALUE)
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addComponent(klientRecepta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel27)
+                .addGap(18, 18, 18)
+                .addComponent(lekiRecepta, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(319, 319, 319))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(klientRecepta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26)
-                    .addComponent(klientRecepta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lekiRecepta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel27)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lekiRecepta, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddRecepta)
                     .addComponent(UpdateRecepta)
                     .addComponent(DeleteRecepta)
                     .addComponent(ClearRecepta))
-                .addContainerGap())
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Recepta", jPanel15);
@@ -475,83 +475,59 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                .addContainerGap(246, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AddMagazyn)
-                            .addComponent(jLabel31))
+                        .addComponent(AddMagazyn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addComponent(UpdateMagazyn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DeleteMagazyn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ClearMagazyn))
-                            .addComponent(dataMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel28))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nazwaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iloscMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cenaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29))))
+                        .addComponent(UpdateMagazyn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DeleteMagazyn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ClearMagazyn))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
+                        .addComponent(nazwaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel29)
+                        .addGap(18, 18, 18)
+                        .addComponent(iloscMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel30)
+                        .addGap(18, 18, 18)
+                        .addComponent(cenaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel31)
+                .addGap(18, 18, 18)
+                .addComponent(dataMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(219, 219, 219))
         );
-
-        jPanel18Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cenaMagazyn, iloscMagazyn, nazwaMagazyn});
-
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(nazwaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(iloscMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(cenaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
+                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel28)
+                        .addComponent(nazwaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(iloscMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel29)
+                        .addComponent(jLabel30)
+                        .addComponent(cenaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel31))
                     .addComponent(dataMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddMagazyn)
                     .addComponent(UpdateMagazyn)
                     .addComponent(DeleteMagazyn)
                     .addComponent(ClearMagazyn))
-                .addContainerGap())
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         TabMagazyn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, magazynLekiList, TabMagazyn);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nazwa}"));
-        columnBinding.setColumnName("Nazwa");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ilosc}"));
-        columnBinding.setColumnName("Ilość");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cena}"));
-        columnBinding.setColumnName("Cena");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${datawaznosci}"));
-        columnBinding.setColumnName("Data ważności");
-        columnBinding.setColumnClass(java.util.Date.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
         TabMagazyn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TabMagazynMouseClicked(evt);
@@ -563,21 +539,19 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9)
+                    .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
 
         jTabbedPane4.addTab("Magazyn", jPanel17);
@@ -631,71 +605,53 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+                .addContainerGap(320, Short.MAX_VALUE)
+                .addComponent(jLabel32)
+                .addGap(18, 18, 18)
+                .addComponent(nazwahurtowniDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel33)
+                .addGap(18, 18, 18)
+                .addComponent(iloscDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel34)
+                .addGap(18, 18, 18)
+                .addComponent(dataDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(281, 281, 281))
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(AddDostawa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UpdateDostawa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DeleteDostawa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearDostawa)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dataDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel32))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(iloscDostawa, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                            .addComponent(nazwahurtowniDostawa))
-                        .addGap(59, 59, 59))))
+                .addGap(457, 457, 457)
+                .addComponent(AddDostawa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpdateDostawa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DeleteDostawa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ClearDostawa)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32)
-                    .addComponent(nazwahurtowniDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33)
-                    .addComponent(iloscDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel34)
+                    .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel32)
+                        .addComponent(nazwahurtowniDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel33)
+                        .addComponent(iloscDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel34))
                     .addComponent(dataDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddDostawa)
                     .addComponent(UpdateDostawa)
                     .addComponent(DeleteDostawa)
                     .addComponent(ClearDostawa))
-                .addContainerGap())
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         TabDostawa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dostawaList, TabDostawa);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nazwahurtowni}"));
-        columnBinding.setColumnName("Nazwa hurtowni");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ilosc}"));
-        columnBinding.setColumnName("Ilość");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${datadostarczenia}"));
-        columnBinding.setColumnName("Data dostarczenia");
-        columnBinding.setColumnClass(java.util.Date.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
         TabDostawa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TabDostawaMouseClicked(evt);
@@ -707,25 +663,28 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10)
+                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Dostawa", jPanel19);
 
+        TabDostawaMagazyn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabDostawaMagazynMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TabDostawaMagazyn);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Dostawa - Lek", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
@@ -742,35 +701,51 @@ public class AptekaMain extends javax.swing.JFrame {
         });
 
         UpdateDostawaLek.setText("Aktualizuj");
+        UpdateDostawaLek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateDostawaLekActionPerformed(evt);
+            }
+        });
 
         DeleteDostawaLek.setText("Usuń");
+        DeleteDostawaLek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteDostawaLekActionPerformed(evt);
+            }
+        });
 
         ClearDostawaLek.setText("Wyczyść");
+        ClearDostawaLek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearDostawaLekActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(HurtowniaDostawaLek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(LekDostawaLek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(456, 456, 456)
                         .addComponent(AddDostawaLek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(UpdateDostawaLek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DeleteDostawaLek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearDostawaLek))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(HurtowniaDostawaLek, 0, 260, Short.MAX_VALUE)
-                            .addComponent(LekDostawaLek, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(ClearDostawaLek)))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -778,18 +753,16 @@ public class AptekaMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(HurtowniaDostawaLek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(HurtowniaDostawaLek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(LekDostawaLek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddDostawaLek)
                     .addComponent(UpdateDostawaLek)
                     .addComponent(DeleteDostawaLek)
                     .addComponent(ClearDostawaLek))
-                .addContainerGap())
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -797,27 +770,25 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Dostawa leków", jPanel1);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Recepta - Leki", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
-        jLabel3.setText("Klient");
+        jLabel3.setText("Recepta");
 
         jLabel4.setText("Lek");
 
@@ -835,8 +806,18 @@ public class AptekaMain extends javax.swing.JFrame {
         });
 
         UpdateReceptaLeki.setText("Aktualizuj");
+        UpdateReceptaLeki.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateReceptaLekiActionPerformed(evt);
+            }
+        });
 
         DeleteReceptaLeki.setText("Usuń");
+        DeleteReceptaLeki.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteReceptaLekiActionPerformed(evt);
+            }
+        });
 
         ClearReceptaLeki.setText("Wyczyść");
 
@@ -845,26 +826,26 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(349, 349, 349)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(ReceptaLekiKlient, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(ReceptaLekiLek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(458, 458, 458)
                         .addComponent(AddReceptaLeki)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(UpdateReceptaLeki)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DeleteReceptaLeki)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearReceptaLeki)
-                        .addContainerGap(71, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReceptaLekiKlient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ReceptaLekiLek, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25))))
+                        .addComponent(ClearReceptaLeki)))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -872,20 +853,23 @@ public class AptekaMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ReceptaLekiKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReceptaLekiKlient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(ReceptaLekiLek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddReceptaLeki)
                     .addComponent(UpdateReceptaLeki)
                     .addComponent(DeleteReceptaLeki)
                     .addComponent(ClearReceptaLeki))
-                .addContainerGap())
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
+        TabReceptaLeki.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabReceptaLekiMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(TabReceptaLeki);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -893,20 +877,18 @@ public class AptekaMain extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Leki w recepcie", jPanel3);
@@ -915,16 +897,12 @@ public class AptekaMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1042, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1010,6 +988,19 @@ public class AptekaMain extends javax.swing.JFrame {
 
     private void AddDostawaLekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDostawaLekActionPerformed
         // TODO add your handling code here:
+        DostawaMagazyn dostawaMagazyn = new DostawaMagazyn();
+        Dostawa dostawa = (Dostawa) HurtowniaDostawaLek.getSelectedItem();
+        dostawaMagazyn.setIDdostawy(dostawa);
+        MagazynLeki magazynLeki = (MagazynLeki) LekDostawaLek.getSelectedItem();
+        dostawaMagazyn.setIDleku(magazynLeki);
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        DostawaMagazynJpaController controller = new DostawaMagazynJpaController(emf);
+        controller.create(dostawaMagazyn);
+        
+        bindDostawaMagazynTable();
+        bindDostawaHurtowniaBox();
+        bindDostawaLekBox();
     }//GEN-LAST:event_AddDostawaLekActionPerformed
 
     private void ClearKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearKlientActionPerformed
@@ -1024,6 +1015,7 @@ public class AptekaMain extends javax.swing.JFrame {
 
     private void DeleteReceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteReceptaActionPerformed
         // TODO add your handling code here:
+        if(selectedReceptaID != -1){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
         ReceptaJpaController controller = new ReceptaJpaController(emf);
         try {
@@ -1035,6 +1027,9 @@ public class AptekaMain extends javax.swing.JFrame {
         }
         clearReceptaTextFields();
         bindReceptaTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać receptę!");
+        }
     }//GEN-LAST:event_DeleteReceptaActionPerformed
 
     private void TabKlientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabKlientMouseClicked
@@ -1070,6 +1065,7 @@ public class AptekaMain extends javax.swing.JFrame {
 
     private void UpdateReceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateReceptaActionPerformed
         // TODO add your handling code here:
+        if(selectedReceptaID != -1){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
         ReceptaJpaController controller = new ReceptaJpaController(emf);
         
@@ -1084,45 +1080,27 @@ public class AptekaMain extends javax.swing.JFrame {
         clearReceptaTextFields();
         bindReceptaTable();
         selectedReceptaID = -1;
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać receptę!");
+        }
     }//GEN-LAST:event_UpdateReceptaActionPerformed
 
     private void UpdateKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateKlientActionPerformed
         // TODO add your handling code here:
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        KlientJpaController controller = new KlientJpaController(emf);    
-        
-        Klient klient = controller.findKlient(selectedKlientID);
-        klient.setImie(imieKlient.getText());
-        klient.setNazwisko(nazwiskoKlient.getText());
-        klient.setPesel(peselKlient.getText());
-        klient.setTelefon(telefonKlient.getText());
-        try {
-            controller.edit(klient);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        selectedKlientID = -1;
-        clearKlientTextFields();
-        bindKlientTable();
-        bindBoxKlient();
-    }//GEN-LAST:event_UpdateKlientActionPerformed
+        if(selectedKlientID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            KlientJpaController controller = new KlientJpaController(emf);    
 
-    private void DeleteKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteKlientActionPerformed
-        // TODO add your handling code here:
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        KlientJpaController controller = new KlientJpaController(emf);
-        ReceptaJpaController receptaController = new ReceptaJpaController(emf);
-        Klient klient = controller.findKlient(selectedKlientID);
-        List<Recepta> receptaList = receptaController.getReceptaByKlient(klient);
-        int numberOfRecepts = receptaList.size();
-        if(numberOfRecepts <= 0){
+            Klient klient = controller.findKlient(selectedKlientID);
+            klient.setImie(imieKlient.getText());
+            klient.setNazwisko(nazwiskoKlient.getText());
+            klient.setPesel(peselKlient.getText());
+            klient.setTelefon(telefonKlient.getText());
             try {
-                controller.destroy(selectedKlientID);
-            } catch (IllegalOrphanException ex) {
-                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+                controller.edit(klient);
             } catch (NonexistentEntityException ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
                 Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
             }
             selectedKlientID = -1;
@@ -1130,12 +1108,42 @@ public class AptekaMain extends javax.swing.JFrame {
             bindKlientTable();
             bindBoxKlient();
         } else {
-            JOptionPane.showMessageDialog(null, "Nie możesz usunąć klienta, który ma recepte");
+            JOptionPane.showMessageDialog(null, "Musisz wybrać klienta!");
+        }
+    }//GEN-LAST:event_UpdateKlientActionPerformed
+
+    private void DeleteKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteKlientActionPerformed
+        // TODO add your handling code here:
+        if(selectedKlientID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            KlientJpaController controller = new KlientJpaController(emf);
+            ReceptaJpaController receptaController = new ReceptaJpaController(emf);
+            Klient klient = controller.findKlient(selectedKlientID);
+            List<Recepta> receptaList = receptaController.getReceptaByKlient(klient);
+            int numberOfRecepts = receptaList.size();
+            if(numberOfRecepts <= 0){
+                try {
+                    controller.destroy(selectedKlientID);
+                } catch (IllegalOrphanException ex) {
+                    Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NonexistentEntityException ex) {
+                    Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                selectedKlientID = -1;
+                clearKlientTextFields();
+                bindKlientTable();
+                bindBoxKlient();
+            } else {
+                JOptionPane.showMessageDialog(null, "Nie możesz usunąć klienta, który ma recepte");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać klienta!");
         }
     }//GEN-LAST:event_DeleteKlientActionPerformed
 
     private void UpdateMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateMagazynActionPerformed
         // TODO add your handling code here:
+        if(selectedMagazynID != -1){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
         MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);    
         
@@ -1154,6 +1162,9 @@ public class AptekaMain extends javax.swing.JFrame {
         selectedMagazynID = -1;
         clearMagazynTextFields();
         bindMagazynTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać lek!");
+        }
     }//GEN-LAST:event_UpdateMagazynActionPerformed
 
     private void TabMagazynMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabMagazynMouseClicked
@@ -1187,6 +1198,7 @@ public class AptekaMain extends javax.swing.JFrame {
 
     private void UpdateDostawaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDostawaActionPerformed
         // TODO add your handling code here:
+        if (selectedDostawaID != -1){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
         DostawaJpaController controller = new DostawaJpaController(emf);    
         
@@ -1202,6 +1214,9 @@ public class AptekaMain extends javax.swing.JFrame {
         selectedDostawaID = -1;
         clearDostawaTextFields();
         bindDostawaTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać dostawę!");
+        }
     }//GEN-LAST:event_UpdateDostawaActionPerformed
 
     private void ClearDostawaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearDostawaActionPerformed
@@ -1211,6 +1226,7 @@ public class AptekaMain extends javax.swing.JFrame {
 
     private void DeleteDostawaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteDostawaActionPerformed
         // TODO add your handling code here:
+        if(selectedDostawaID != -1){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
         DostawaJpaController controller = new DostawaJpaController(emf);
         Dostawa dostawa = controller.findDostawa(selectedDostawaID);
@@ -1223,10 +1239,14 @@ public class AptekaMain extends javax.swing.JFrame {
         }
         clearDostawaTextFields();
         bindDostawaTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać dostawę!");
+        }
     }//GEN-LAST:event_DeleteDostawaActionPerformed
 
     private void DeleteMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMagazynActionPerformed
         // TODO add your handling code here:
+        if (selectedMagazynID != -1){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
         MagazynLekiJpaController controller = new MagazynLekiJpaController(emf);
         MagazynLeki magazynLeki = controller.findMagazynLeki(selectedMagazynID);
@@ -1239,6 +1259,9 @@ public class AptekaMain extends javax.swing.JFrame {
         }
         clearMagazynTextFields();
         bindMagazynTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać lek!");
+        }
     }//GEN-LAST:event_DeleteMagazynActionPerformed
 
     private void ClearMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearMagazynActionPerformed
@@ -1246,8 +1269,120 @@ public class AptekaMain extends javax.swing.JFrame {
         clearMagazynTextFields();
     }//GEN-LAST:event_ClearMagazynActionPerformed
 
+    private void ClearDostawaLekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearDostawaLekActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ClearDostawaLekActionPerformed
+
+    private void DeleteDostawaLekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteDostawaLekActionPerformed
+        // TODO add your handling code here:
+        if (selectedDostawaMagazynID != -1){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        DostawaMagazynJpaController controller = new DostawaMagazynJpaController(emf);
+        DostawaMagazyn dostawaMagazyn = controller.findDostawaMagazyn(selectedDostawaMagazynID);
+        try {
+            controller.destroy(selectedDostawaMagazynID);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bindDostawaMagazynTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać dostawę!");
+        }
+    }//GEN-LAST:event_DeleteDostawaLekActionPerformed
+
+    private void TabDostawaMagazynMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabDostawaMagazynMouseClicked
+        // TODO add your handling code here:
+        int rowNum = TabDostawaMagazyn.getSelectedRow();
+        selectedDostawaMagazynID = Integer.parseInt(TabDostawaMagazyn.getValueAt(rowNum, 0).toString());
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        DostawaMagazynJpaController controller = new DostawaMagazynJpaController(emf);
+        DostawaMagazyn dostawaMagazyn = controller.findDostawaMagazyn(selectedDostawaMagazynID);
+    }//GEN-LAST:event_TabDostawaMagazynMouseClicked
+
+    private void UpdateDostawaLekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDostawaLekActionPerformed
+        // TODO add your handling code here:
+        if(selectedDostawaMagazynID != -1){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        DostawaMagazynJpaController controller = new DostawaMagazynJpaController(emf);
+        
+        DostawaMagazyn dostawaMagazyn = controller.findDostawaMagazyn(selectedDostawaMagazynID);
+        dostawaMagazyn.setIDdostawy((Dostawa)HurtowniaDostawaLek.getSelectedItem());
+        dostawaMagazyn.setIDleku((MagazynLeki)LekDostawaLek.getSelectedItem());
+        try {
+            controller.edit(dostawaMagazyn);
+        } catch (Exception ex) {
+            Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bindDostawaMagazynTable();
+        selectedDostawaMagazynID = -1;
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać dostawę!");
+        }
+    }//GEN-LAST:event_UpdateDostawaLekActionPerformed
+
+    private void TabReceptaLekiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabReceptaLekiMouseClicked
+        // TODO add your handling code here:
+        int rowNum = TabReceptaLeki.getSelectedRow();
+        selectedReceptaMagazynID = Integer.parseInt(TabReceptaLeki.getValueAt(rowNum, 0).toString());        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        ReceptaMagazynJpaController controller = new ReceptaMagazynJpaController(emf);
+        ReceptaMagazyn receptaMagazyn = controller.findReceptaMagazyn(selectedReceptaMagazynID);
+    }//GEN-LAST:event_TabReceptaLekiMouseClicked
+
+    private void DeleteReceptaLekiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteReceptaLekiActionPerformed
+        // TODO add your handling code here:
+        if (selectedReceptaMagazynID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            ReceptaMagazynJpaController controller = new ReceptaMagazynJpaController(emf);
+            ReceptaMagazyn receptaMagazyn = controller.findReceptaMagazyn(selectedReceptaMagazynID);
+            try {
+                controller.destroy(selectedReceptaMagazynID);
+            } catch (NonexistentEntityException ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            bindReceptaMagazynTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać lek w recepcie!");
+        }
+    }//GEN-LAST:event_DeleteReceptaLekiActionPerformed
+
+    private void UpdateReceptaLekiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateReceptaLekiActionPerformed
+        // TODO add your handling code here:
+        if(selectedReceptaMagazynID != -1){
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+            ReceptaMagazynJpaController controller = new ReceptaMagazynJpaController(emf);
+
+            ReceptaMagazyn receptaMagazyn = controller.findReceptaMagazyn(selectedReceptaMagazynID);
+            receptaMagazyn.setIDrecepty((Recepta)ReceptaLekiKlient.getSelectedItem());
+            receptaMagazyn.setIDleku((MagazynLeki)ReceptaLekiLek.getSelectedItem());
+            try {
+                controller.edit(receptaMagazyn);
+            } catch (Exception ex) {
+                Logger.getLogger(AptekaMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            bindReceptaMagazynTable();
+            selectedReceptaMagazynID = -1;
+        } else {
+            JOptionPane.showMessageDialog(null, "Musisz wybrać lek w recepcie!");
+        }
+    }//GEN-LAST:event_UpdateReceptaLekiActionPerformed
+
     private void AddReceptaLekiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddReceptaLekiActionPerformed
         // TODO add your handling code here:
+        ReceptaMagazyn receptaMagazyn = new ReceptaMagazyn();
+        Recepta recepta = (Recepta) ReceptaLekiKlient.getSelectedItem();
+        receptaMagazyn.setIDrecepty(recepta);
+        MagazynLeki magazynLeki = (MagazynLeki) ReceptaLekiLek.getSelectedItem();
+        receptaMagazyn.setIDleku(magazynLeki);
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
+        ReceptaMagazynJpaController controller = new ReceptaMagazynJpaController(emf);
+        controller.create(receptaMagazyn);
+
+        bindReceptaMagazynTable();
+        bindReceptaKlientBox();
+        bindReceptaLekiBox();
     }//GEN-LAST:event_AddReceptaLekiActionPerformed
 
     private void ReceptaLekiKlientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReceptaLekiKlientActionPerformed
@@ -1344,7 +1479,7 @@ public class AptekaMain extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"ID leku", "Nazwa", "Ilość", "Cena", "Data ważności"});
         for(MagazynLeki magazynLeki: listaMagazynLekis){
-            model.addRow(new String[]{magazynLeki.getIDleku().toString(), magazynLeki.getNazwa(), Integer.toString(magazynLeki.getIlosc()), Long.toString(magazynLeki.getCena()), magazynLeki.getDatawaznosci().toString()});
+            model.addRow(new String[]{magazynLeki.getIDleku().toString(), magazynLeki.getNazwa(), Integer.toString(magazynLeki.getIlosc()), Long.toString(magazynLeki.getCena()), magazynLeki.getDatawaznosciAsString().toString()});
         }
         TabMagazyn.setModel(model);
         TabMagazyn.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1423,11 +1558,11 @@ public class AptekaMain extends javax.swing.JFrame {
     
     private void bindReceptaKlientBox(){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AptekaBazaPU");
-        KlientJpaController controller = new KlientJpaController(emf);
-        List<Klient> listaKlients = controller.findKlientEntities();
+        ReceptaJpaController controller = new ReceptaJpaController(emf);
+        List<Recepta> listarReceptas = controller.findReceptaEntities();
         
-        Object[] arrayKlients = listaKlients.toArray();
-        DefaultComboBoxModel model = new DefaultComboBoxModel(arrayKlients);
+        Object[] arrayReceptas = listarReceptas.toArray();
+        DefaultComboBoxModel model = new DefaultComboBoxModel(arrayReceptas);
         ReceptaLekiKlient.setModel(model);
     }
     
@@ -1571,12 +1706,11 @@ public class AptekaMain extends javax.swing.JFrame {
     private java.util.List<Apteka.Recepta> receptaList;
     private javax.persistence.Query receptaQuery;
     private javax.swing.JTextField telefonKlient;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
-    int selectedKlientID;
-    int selectedReceptaID;
-    int selectedMagazynID;
-    int selectedDostawaID;
-    int selectedDostawaMagazynID;
-    int selectedReceptaMagazynID;
+    int selectedKlientID = -1;
+    int selectedReceptaID = -1;
+    int selectedMagazynID = -1;
+    int selectedDostawaID = -1;
+    int selectedDostawaMagazynID = -1;
+    int selectedReceptaMagazynID = -1;
 }
