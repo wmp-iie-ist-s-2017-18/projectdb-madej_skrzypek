@@ -7,6 +7,7 @@ package Apteka;
 
 import Apteka.exceptions.IllegalOrphanException;
 import Apteka.exceptions.NonexistentEntityException;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -165,8 +166,6 @@ public class AptekaMain extends javax.swing.JFrame {
 
         jTabbedPane4.setToolTipText("");
         jTabbedPane4.setMaximumSize(null);
-        jTabbedPane4.setMinimumSize(null);
-        jTabbedPane4.setPreferredSize(null);
 
         jPanel13.setMaximumSize(new java.awt.Dimension(1275, 735));
         jPanel13.setMinimumSize(new java.awt.Dimension(1275, 735));
@@ -183,6 +182,35 @@ public class AptekaMain extends javax.swing.JFrame {
         jLabel24.setText("PESEL");
 
         jLabel25.setText("Telefon");
+
+        imieKlient.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                imieKlientPropertyChange(evt);
+            }
+        });
+        imieKlient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                imieKlientKeyTyped(evt);
+            }
+        });
+
+        nazwiskoKlient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nazwiskoKlientKeyTyped(evt);
+            }
+        });
+
+        peselKlient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                peselKlientKeyTyped(evt);
+            }
+        });
+
+        telefonKlient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telefonKlientKeyTyped(evt);
+            }
+        });
 
         AddKlient.setText("Wprowadź");
         AddKlient.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +335,6 @@ public class AptekaMain extends javax.swing.JFrame {
         jTabbedPane4.addTab("Klient", jPanel13);
 
         jPanel15.setMaximumSize(null);
-        jPanel15.setMinimumSize(null);
         jPanel15.setRequestFocusEnabled(false);
 
         TabRecepta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -330,6 +357,11 @@ public class AptekaMain extends javax.swing.JFrame {
         lekiRecepta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lekiReceptaActionPerformed(evt);
+            }
+        });
+        lekiRecepta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lekiReceptaKeyTyped(evt);
             }
         });
 
@@ -434,7 +466,6 @@ public class AptekaMain extends javax.swing.JFrame {
         jTabbedPane4.addTab("Recepta", jPanel15);
 
         jPanel17.setMaximumSize(null);
-        jPanel17.setMinimumSize(null);
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Magazyn", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         jPanel18.setToolTipText("");
@@ -480,6 +511,32 @@ public class AptekaMain extends javax.swing.JFrame {
         nazwaMagazyn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nazwaMagazynActionPerformed(evt);
+            }
+        });
+        nazwaMagazyn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nazwaMagazynKeyTyped(evt);
+            }
+        });
+
+        iloscMagazyn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                iloscMagazynKeyTyped(evt);
+            }
+        });
+
+        cenaMagazyn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cenaMagazynKeyTyped(evt);
+            }
+        });
+
+        dataMagazyn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dataMagazynKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dataMagazynKeyTyped(evt);
             }
         });
 
@@ -568,7 +625,6 @@ public class AptekaMain extends javax.swing.JFrame {
         jTabbedPane4.addTab("Magazyn", jPanel17);
 
         jPanel19.setMaximumSize(null);
-        jPanel19.setMinimumSize(null);
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Dostawa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         jPanel20.setToolTipText("");
@@ -584,6 +640,17 @@ public class AptekaMain extends javax.swing.JFrame {
         nazwahurtowniDostawa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nazwahurtowniDostawaActionPerformed(evt);
+            }
+        });
+        nazwahurtowniDostawa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nazwahurtowniDostawaKeyTyped(evt);
+            }
+        });
+
+        iloscDostawa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                iloscDostawaKeyTyped(evt);
             }
         });
 
@@ -694,7 +761,6 @@ public class AptekaMain extends javax.swing.JFrame {
         jTabbedPane4.addTab("Dostawa", jPanel19);
 
         jPanel1.setMaximumSize(null);
-        jPanel1.setMinimumSize(null);
 
         TabDostawaMagazyn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1421,6 +1487,89 @@ public class AptekaMain extends javax.swing.JFrame {
         clearMagazynTextFields();
         bindMagazynTable();
     }//GEN-LAST:event_AddMagazynActionPerformed
+
+    private void imieKlientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_imieKlientKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestChar))||(imieKlient.getText().length() >= 20 ))
+            evt.consume();
+    }//GEN-LAST:event_imieKlientKeyTyped
+
+    private void nazwiskoKlientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nazwiskoKlientKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestChar))||(nazwiskoKlient.getText().length() >= 20 ))
+            evt.consume();
+    }//GEN-LAST:event_nazwiskoKlientKeyTyped
+
+    private void peselKlientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peselKlientKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isDigit(TestChar))||(peselKlient.getText().length() >= 11 ))
+            evt.consume();
+    }//GEN-LAST:event_peselKlientKeyTyped
+
+    private void imieKlientPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_imieKlientPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imieKlientPropertyChange
+
+    private void telefonKlientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonKlientKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isDigit(TestChar))||(telefonKlient.getText().length() >= 9 ))
+            evt.consume();
+    }//GEN-LAST:event_telefonKlientKeyTyped
+
+    private void lekiReceptaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lekiReceptaKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestChar)||(TestChar==KeyEvent.VK_SPACE)||(TestChar==KeyEvent.VK_COMMA)||(Character.isDigit(TestChar)))||(lekiRecepta.getText().length() >= 50 ))
+            evt.consume();
+    }//GEN-LAST:event_lekiReceptaKeyTyped
+
+    private void nazwaMagazynKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nazwaMagazynKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestChar))||(nazwaMagazyn.getText().length() >= 20 ))
+            evt.consume();
+    }//GEN-LAST:event_nazwaMagazynKeyTyped
+
+    private void iloscMagazynKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iloscMagazynKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isDigit(TestChar))||(iloscMagazyn.getText().length() >= 5 ))
+            evt.consume();
+    }//GEN-LAST:event_iloscMagazynKeyTyped
+
+    private void cenaMagazynKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cenaMagazynKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isDigit(TestChar))||(cenaMagazyn.getText().length() >= 3 ))
+            evt.consume();
+    }//GEN-LAST:event_cenaMagazynKeyTyped
+
+    private void dataMagazynKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataMagazynKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataMagazynKeyTyped
+
+    private void dataMagazynKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataMagazynKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_dataMagazynKeyPressed
+
+    private void nazwahurtowniDostawaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nazwahurtowniDostawaKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestChar))||(nazwahurtowniDostawa.getText().length() >= 20 ))
+            evt.consume();
+    }//GEN-LAST:event_nazwahurtowniDostawaKeyTyped
+
+    private void iloscDostawaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iloscDostawaKeyTyped
+        // TODO add your handling code here:
+        char TestChar=evt.getKeyChar();
+        if(!(Character.isDigit(TestChar))||(iloscDostawa.getText().length() >= 5 ))
+            evt.consume();
+    }//GEN-LAST:event_iloscDostawaKeyTyped
 
     /**
      * @param args the command line arguments
