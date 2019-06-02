@@ -5,6 +5,8 @@
  */
 package Apteka;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -16,8 +18,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -32,7 +38,17 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Klient.findByNazwisko", query = "SELECT k FROM Klient k WHERE k.nazwisko = :nazwisko")
     , @NamedQuery(name = "Klient.findByPesel", query = "SELECT k FROM Klient k WHERE k.pesel = :pesel")
     , @NamedQuery(name = "Klient.findByTelefon", query = "SELECT k FROM Klient k WHERE k.telefon = :telefon")})
+@NamedStoredProcedureQuery(
+        name = "dodaj_klienta",
+        procedureName = "dodaj_klienta",
+        parameters = {  @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "imie"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "nazwisko"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "pesel"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "telefon") })
 public class Klient implements Serializable {
+
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -75,7 +91,9 @@ public class Klient implements Serializable {
     }
 
     public void setIDKlienta(Integer iDKlienta) {
+        Integer oldIDKlienta = this.iDKlienta;
         this.iDKlienta = iDKlienta;
+        changeSupport.firePropertyChange("IDKlienta", oldIDKlienta, iDKlienta);
     }
 
     public String getImie() {
@@ -83,7 +101,9 @@ public class Klient implements Serializable {
     }
 
     public void setImie(String imie) {
+        String oldImie = this.imie;
         this.imie = imie;
+        changeSupport.firePropertyChange("imie", oldImie, imie);
     }
 
     public String getNazwisko() {
@@ -91,7 +111,9 @@ public class Klient implements Serializable {
     }
 
     public void setNazwisko(String nazwisko) {
+        String oldNazwisko = this.nazwisko;
         this.nazwisko = nazwisko;
+        changeSupport.firePropertyChange("nazwisko", oldNazwisko, nazwisko);
     }
 
     public String getPesel() {
@@ -99,7 +121,9 @@ public class Klient implements Serializable {
     }
 
     public void setPesel(String pesel) {
+        String oldPesel = this.pesel;
         this.pesel = pesel;
+        changeSupport.firePropertyChange("pesel", oldPesel, pesel);
     }
 
     public String getTelefon() {
@@ -107,7 +131,9 @@ public class Klient implements Serializable {
     }
 
     public void setTelefon(String telefon) {
+        String oldTelefon = this.telefon;
         this.telefon = telefon;
+        changeSupport.firePropertyChange("telefon", oldTelefon, telefon);
     }
 
     public Collection<Recepta> getReceptaCollection() {
@@ -141,6 +167,14 @@ public class Klient implements Serializable {
     @Override
     public String toString() {
         return imie + " " + nazwisko;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
     }
     
 }

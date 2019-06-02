@@ -18,7 +18,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,6 +39,13 @@ import javax.persistence.TemporalType;
     , @NamedQuery(name = "MagazynLeki.findByCena", query = "SELECT m FROM MagazynLeki m WHERE m.cena = :cena")
     , @NamedQuery(name = "MagazynLeki.findByIlosc", query = "SELECT m FROM MagazynLeki m WHERE m.ilosc = :ilosc")
     , @NamedQuery(name = "MagazynLeki.findByDatawaznosci", query = "SELECT m FROM MagazynLeki m WHERE m.datawaznosci = :datawaznosci")})
+@NamedStoredProcedureQuery(
+        name = "dodaj_magazyn",
+        procedureName = "dodaj_magazyn",
+        parameters = {  @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "nazwa"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = Double.class, name = "cena"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "ilosc"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class, name = "data") })
 public class MagazynLeki implements Serializable {
 
     private static final long serialVersionUID = 1L;

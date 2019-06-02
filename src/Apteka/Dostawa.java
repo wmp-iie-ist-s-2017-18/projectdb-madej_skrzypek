@@ -18,7 +18,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,6 +38,12 @@ import javax.persistence.TemporalType;
     , @NamedQuery(name = "Dostawa.findByDatadostarczenia", query = "SELECT d FROM Dostawa d WHERE d.datadostarczenia = :datadostarczenia")
     , @NamedQuery(name = "Dostawa.findByNazwahurtowni", query = "SELECT d FROM Dostawa d WHERE d.nazwahurtowni = :nazwahurtowni")
     , @NamedQuery(name = "Dostawa.findByIlosc", query = "SELECT d FROM Dostawa d WHERE d.ilosc = :ilosc")})
+@NamedStoredProcedureQuery(
+        name = "dodaj_dostawa",
+        procedureName = "dodaj_dostawa",
+        parameters = {  @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "nazwa"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class, name = "data"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "ilosc") })
 public class Dostawa implements Serializable {
 
     private static final long serialVersionUID = 1L;

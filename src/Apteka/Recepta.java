@@ -19,7 +19,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 
 /**
@@ -31,6 +34,11 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "Recepta.findAll", query = "SELECT r FROM Recepta r")
     , @NamedQuery(name = "Recepta.findByIDrecepty", query = "SELECT r FROM Recepta r WHERE r.iDrecepty = :iDrecepty")})
+@NamedStoredProcedureQuery(
+        name = "dodaj_recepte",
+        procedureName = "dodaj_recepte",
+        parameters = {  @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "leki"),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "klientid") })
 public class Recepta implements Serializable {
 
     private static final long serialVersionUID = 1L;
