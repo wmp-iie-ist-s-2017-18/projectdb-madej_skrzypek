@@ -122,7 +122,7 @@ public class AptekaMain extends javax.swing.JFrame {
         nazwaMagazyn = new javax.swing.JTextField();
         iloscMagazyn = new javax.swing.JTextField();
         cenaMagazyn = new javax.swing.JTextField();
-        dataMagazyn = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane9 = new javax.swing.JScrollPane();
         TabMagazyn = new javax.swing.JTable();
         jPanel19 = new javax.swing.JPanel();
@@ -136,7 +136,7 @@ public class AptekaMain extends javax.swing.JFrame {
         UpdateDostawa = new javax.swing.JButton();
         DeleteDostawa = new javax.swing.JButton();
         ClearDostawa = new javax.swing.JButton();
-        dataDostawa = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jScrollPane10 = new javax.swing.JScrollPane();
         TabDostawa = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -539,12 +539,12 @@ public class AptekaMain extends javax.swing.JFrame {
             }
         });
 
-        dataMagazyn.addKeyListener(new java.awt.event.KeyAdapter() {
+        jDateChooser1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                dataMagazynKeyPressed(evt);
+                jDateChooser1KeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                dataMagazynKeyTyped(evt);
+                jDateChooser1KeyTyped(evt);
             }
         });
 
@@ -578,7 +578,7 @@ public class AptekaMain extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jLabel31)
                 .addGap(18, 18, 18)
-                .addComponent(dataMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(219, 219, 219))
         );
         jPanel18Layout.setVerticalGroup(
@@ -594,7 +594,7 @@ public class AptekaMain extends javax.swing.JFrame {
                         .addComponent(jLabel30)
                         .addComponent(cenaMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel31))
-                    .addComponent(dataMagazyn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddMagazyn)
@@ -705,7 +705,7 @@ public class AptekaMain extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jLabel34)
                 .addGap(18, 18, 18)
-                .addComponent(dataDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(281, 281, 281))
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addGap(457, 457, 457)
@@ -729,7 +729,7 @@ public class AptekaMain extends javax.swing.JFrame {
                         .addComponent(jLabel33)
                         .addComponent(iloscDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel34))
-                    .addComponent(dataDostawa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddDostawa)
@@ -1064,7 +1064,7 @@ public class AptekaMain extends javax.swing.JFrame {
         
         CallDodajDostawaProcedure xd = new CallDodajDostawaProcedure();
         xd.dodajDostawe(nazwahurtowniDostawa.getText(), 
-                        dataDostawa.getDate(),
+                        jDateChooser2.getDate(),
                         Integer.parseInt(iloscDostawa.getText()));
         clearDostawaTextFields();
         bindKlientTable();
@@ -1211,7 +1211,7 @@ public class AptekaMain extends javax.swing.JFrame {
         
         nazwahurtowniDostawa.setText(dostawa.getNazwahurtowni());
         iloscDostawa.setText(String.valueOf(dostawa.getIlosc()));
-        dataDostawa.setDate(dostawa.getDatadostarczenia());
+        jDateChooser2.setDate(dostawa.getDatadostarczenia());
     }//GEN-LAST:event_TabDostawaMouseClicked
 
     private void UpdateDostawaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDostawaActionPerformed
@@ -1221,7 +1221,7 @@ public class AptekaMain extends javax.swing.JFrame {
         DostawaJpaController controller = new DostawaJpaController(emf);    
         
         Dostawa dostawa = controller.findDostawa(selectedDostawaID);
-        dostawa.setDatadostarczenia(dataDostawa.getDate());
+        dostawa.setDatadostarczenia(jDateChooser2.getDate());
         dostawa.setNazwahurtowni(nazwahurtowniDostawa.getText());
         dostawa.setIlosc(Integer.parseInt(iloscDostawa.getText()));
         try {
@@ -1603,7 +1603,7 @@ public class AptekaMain extends javax.swing.JFrame {
         nazwaMagazyn.setText(magazynLeki.getNazwa());
         cenaMagazyn.setText(String.valueOf(magazynLeki.getCena()));
         iloscMagazyn.setText(String.valueOf(magazynLeki.getIlosc()));
-        dataMagazyn.setDate(magazynLeki.getDatawaznosci());
+        jDateChooser1.setDate(magazynLeki.getDatawaznosci());
     }//GEN-LAST:event_TabMagazynMouseClicked
 
     private void nazwaMagazynActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nazwaMagazynActionPerformed
@@ -1657,7 +1657,7 @@ public class AptekaMain extends javax.swing.JFrame {
             magazynLeki.setNazwa(nazwaMagazyn.getText());
             magazynLeki.setCena(Integer.parseInt(cenaMagazyn.getText()));
             magazynLeki.setIlosc(Integer.parseInt(iloscMagazyn.getText()));
-            magazynLeki.setDatawaznosci(dataMagazyn.getDate());
+            magazynLeki.setDatawaznosci(jDateChooser1.getDate());
             try {
                 controller.edit(magazynLeki);
             } catch (NonexistentEntityException ex) {
@@ -1690,7 +1690,7 @@ public class AptekaMain extends javax.swing.JFrame {
         xd.dodajMagazyn(nazwaMagazyn.getText(), 
                         Double.parseDouble(cenaMagazyn.getText()), 
                         Integer.parseInt(iloscMagazyn.getText()),
-                        dataMagazyn.getDate());
+                        jDateChooser1.getDate());
         clearMagazynTextFields();
         bindKlientTable();
         bindReceptaTable();
@@ -1777,14 +1777,14 @@ public class AptekaMain extends javax.swing.JFrame {
             evt.consume();
     }//GEN-LAST:event_cenaMagazynKeyTyped
 
-    private void dataMagazynKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataMagazynKeyTyped
+    private void jDateChooser1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooser1KeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_dataMagazynKeyTyped
+    }//GEN-LAST:event_jDateChooser1KeyTyped
 
-    private void dataMagazynKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataMagazynKeyPressed
+    private void jDateChooser1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooser1KeyPressed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_dataMagazynKeyPressed
+    }//GEN-LAST:event_jDateChooser1KeyPressed
 
     private void nazwahurtowniDostawaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nazwahurtowniDostawaKeyTyped
         // TODO add your handling code here:
@@ -2043,8 +2043,6 @@ public class AptekaMain extends javax.swing.JFrame {
     private javax.swing.JButton UpdateRecepta;
     private javax.swing.JButton UpdateReceptaLeki;
     private javax.swing.JTextField cenaMagazyn;
-    private com.toedter.calendar.JDateChooser dataDostawa;
-    private com.toedter.calendar.JDateChooser dataMagazyn;
     private java.util.List<Apteka.Dostawa> dostawaList;
     private java.util.List<Apteka.Dostawa> dostawaList1;
     private java.util.List<Apteka.Dostawa> dostawaList2;
@@ -2058,6 +2056,8 @@ public class AptekaMain extends javax.swing.JFrame {
     private javax.swing.JTextField iloscDostawa;
     private javax.swing.JTextField iloscMagazyn;
     private javax.swing.JTextField imieKlient;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
